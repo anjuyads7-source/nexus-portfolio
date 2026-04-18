@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexus — Best UI Designer</title>
+  <title>Nexus - Best UI Designer</title>
   <meta name="description" content="Premium Roblox UI/UX Designer specializing in game interfaces, HUD systems, shop designs, and interactive experiences.">
-  <meta property="og:title" content="Nexus — Best UI Designer">
+  <meta property="og:title" content="Nexus - Best UI Designer">
   <meta property="og:description" content="Premium Roblox UI/UX Designer specializing in game interfaces, HUD systems, and interactive experiences.">
   <meta property="og:image" content="assets/showcase-inventory.png">
   <meta property="og:type" content="website">
@@ -17,7 +17,6 @@
 <body>
   <canvas id="confetti-canvas"></canvas>
   <div class="cursor-glow" id="cursor-glow"></div>
-
 
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
@@ -36,3 +35,266 @@
     </div>
     <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
     <button class="nav-mobile-btn" id="mobile-menu-btn">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu hidden" id="mobile-menu">
+    <a href="#home" class="mobile-link">Home</a>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#portfolio" class="mobile-link">Portfolio</a>
+    <a href="#skills" class="mobile-link">Skills</a>
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#testimonials" class="mobile-link">Reviews</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content animate-on-scroll">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Nexus Studio • Building the Future
+      </div>
+      <h1 class="hero-title">Building <span>high-impact</span> Roblox experiences.</h1>
+      <p class="hero-desc">Nexus turns concepts into scalable, performant games — tight systems, clean code, and data-driven iteration for creators who take their projects seriously.</p>
+      
+      <div class="hero-tags">
+        <div class="hero-tag">Combat & Ability Systems</div>
+        <div class="hero-tag">Data & Progression</div>
+        <div class="hero-tag">Optimised Gameplay</div>
+      </div>
+
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
+        <button class="btn-secondary" onclick="document.querySelector('#portfolio').scrollIntoView({behavior:'smooth'})">View Work</button>
+      </div>
+    </div>
+
+    <div class="hero-visual animate-on-scroll">
+      <div class="snapshot-card">
+        <div class="snapshot-header">
+          <span class="snapshot-label">Live Snapshot</span>
+          <span class="snapshot-tag">Roblox Linked</span>
+        </div>
+        <div class="snapshot-grid">
+          <div class="snap-stat">
+            <span class="snap-val">6,207</span>
+            <span class="snap-sub">Players Online</span>
+          </div>
+          <div class="snap-stat">
+            <span class="snap-val">371.8M</span>
+            <span class="snap-sub">Total Visits</span>
+          </div>
+          <div class="snap-stat">
+            <span class="snap-val">125K+</span>
+            <span class="snap-sub">Peak CCU</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="focus-card">
+        <div class="focus-header">
+          <span class="snapshot-label">Focus</span>
+          <span class="snapshot-tag">Systems & Scripting</span>
+        </div>
+        <div class="focus-title">Clean code, live-tested.</div>
+        <div class="focus-desc">From combat logic to long-term progression, every system is built to survive real traffic, not just test servers.</div>
+      </div>
+    </div>
+  </section>  <!-- About -->
+  <section class="section" id="about">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title">Designing the Future of <span class="gradient-text">Roblox Gaming</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card glass-card animate-on-scroll">
+          <div class="about-icon">🎮</div>
+          <h3>Roblox Native</h3>
+          <p>Born and raised in the Roblox ecosystem. I understand the platform's constraints and opportunities better than anyone.</p>
+        </div>
+        <div class="about-card glass-card animate-on-scroll">
+          <div class="about-icon">🎨</div>
+          <h3>UI/UX Expert</h3>
+          <p>I design interfaces that are not just beautiful, but intuitive. Every pixel serves a purpose in guiding player behavior.</p>
+        </div>
+        <div class="about-card glass-card animate-on-scroll">
+          <div class="about-icon">⚡</div>
+          <h3>Performance First</h3>
+          <p>My UIs are optimized for low-end devices. Clean code, minimal draw calls, and buttery-smooth animations.</p>
+        </div>
+        <div class="about-card glass-card animate-on-scroll">
+          <div class="about-icon">🔧</div>
+          <h3>Full Stack</h3>
+          <p>From Figma mockups to working Luau code—I deliver complete, production-ready UI systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="section" id="portfolio">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">Featured <span class="gradient-text">UI Work</span></h2>
+        <p class="section-desc">A showcase of my recent Roblox UI designs and implementations.</p>
+      </div>
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="hud">HUD Systems</button>
+        <button class="filter-btn" data-filter="shop">Shop UI</button>
+        <button class="filter-btn" data-filter="inventory">Inventory</button>
+        <button class="filter-btn" data-filter="trading">Trading</button>
+      </div>
+      <div class="portfolio-grid" id="portfolio-grid">
+        <!-- Project items will be dynamically rendered or kept as they are -->
+      </div>
+    </div>
+  </section>  <!-- Skills -->
+  <section class="section" id="skills">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Skills</span>
+        <h2 class="section-title">My <span class="gradient-text">Tech Stack</span></h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card animate-on-scroll"><div class="skill-icon">🎨</div><h4>Roblox Studio</h4><div class="skill-bar"><div class="skill-fill" data-width="95"></div></div></div>
+        <div class="skill-card animate-on-scroll"><div class="skill-icon">💻</div><h4>Luau / Lua</h4><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+        <div class="skill-card animate-on-scroll"><div class="skill-icon">🖌️</div><h4>UI/UX Design</h4><div class="skill-bar"><div class="skill-fill" data-width="92"></div></div></div>
+        <div class="skill-card animate-on-scroll"><div class="skill-icon">📐</div><h4>Figma</h4><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
+        <div class="skill-card animate-on-scroll"><div class="skill-icon">✨</div><h4>Animation / Tween</h4><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
+        <div class="skill-card animate-on-scroll"><div class="skill-icon">🌐</div><h4>HTML / CSS / JS</h4><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></div>
+        <div class="skill-card animate-on-scroll"><div class="skill-icon">🎬</div><h4>Blender (3D)</h4><div class="skill-bar"><div class="skill-fill" data-width="70"></div></div></div>
+        <div class="skill-card animate-on-scroll"><div class="skill-icon">🖼️</div><h4>Photoshop</h4><div class="skill-bar"><div class="skill-fill" data-width="82"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Services</span>
+        <h2 class="section-title">What I <span class="gradient-text">Offer</span></h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card animate-on-scroll"><div class="service-number">01</div><h3>Custom Game UI</h3><p>Full-stack UI systems from wireframe to production. HUDs, menus, inventories, and more.</p><div class="service-price">Starting at <strong>$50</strong></div></div>
+        <div class="service-card featured animate-on-scroll"><div class="service-badge">Most Popular</div><div class="service-number">02</div><h3>Complete UI Overhaul</h3><p>Transform your existing game UI into a premium experience. Includes design, code, and animations.</p><div class="service-price">Starting at <strong>$120</strong></div></div>
+        <div class="service-card animate-on-scroll"><div class="service-number">03</div><h3>UI Consultation</h3><p>Expert review of your game's UI/UX with actionable improvements and best practices.</p><div class="service-price">Starting at <strong>$25</strong></div></div>
+        <div class="service-card animate-on-scroll"><div class="service-number">04</div><h3>Shop & Monetization</h3><p>Revenue-optimized shop interfaces with product placement strategies and Robux integration.</p><div class="service-price">Starting at <strong>$80</strong></div></div>
+      </div>
+    </div>
+  </section>  <!-- Testimonials -->
+  <section class="section" id="testimonials">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Testimonials</span>
+        <h2 class="section-title">Client <span class="gradient-text">Reviews</span></h2>
+      </div>
+      <div class="testimonials-track">
+        <div class="testimonial-card"><div class="testimonial-stars">⭐⭐⭐⭐⭐</div><p>"Nexus completely transformed our game's UI. Player retention went up 40% after the redesign. Absolutely incredible work!"</p><div class="testimonial-author"><div class="testimonial-avatar" style="background:#6366f1">A</div><div><strong>Alex_Builder</strong><br><span>RPG World Creator</span></div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">⭐⭐⭐⭐⭐</div><p>"The shop UI they designed tripled our daily revenue. Clean, intuitive, and players love it. Best investment we made."</p><div class="testimonial-author"><div class="testimonial-avatar" style="background:#ec4899">S</div><div><strong>SkyDevStudios</strong><br><span>Game Studio</span></div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">⭐⭐⭐⭐⭐</div><p>"Fast delivery, clean code, and the animations are so smooth. Will definitely hire again for our next project."</p><div class="testimonial-author"><div class="testimonial-avatar" style="background:#22c55e">M</div><div><strong>MegaCraft</strong><br><span>Simulator Developer</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Get in Touch</span>
+        <h2 class="section-title">Contact & <span>Terms</span></h2>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-info animate-on-scroll">
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">
+              <span>Send Message</span>
+              <div class="btn-glow"></div>
+            </button>
+          </form>
+          
+          <a href="https://discordapp.com/users/imtherealshirt_25094" target="_blank" class="contact-card">
+            <div class="contact-icon">💬</div>
+            <div>
+              <h4>Discord</h4>
+              <p>imtherealshirt_25094</p>
+            </div>
+          </a>
+          <div class="contact-card">
+            <div class="contact-icon">🎮</div>
+            <div>
+              <h4>Roblox</h4>
+              <p>ClassicalAnime</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <p>nexus_studio@roblox.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="terms-section animate-on-scroll">
+          <div class="terms-item">
+            <h4>Collaboration Process</h4>
+            <p>Consultation -> Quote & Timeline -> 50% Upfront Payment -> Development -> Final Delivery.</p>
+          </div>
+          <div class="terms-item">
+            <h4>Revisions & Changes</h4>
+            <p>Each package includes a limited number of revisions. Major redesigns after work begins may incur extra costs.</p>
+          </div>
+          <div class="terms-item">
+            <h4>Client Conduct</h4>
+            <p>Professionalism and respect are required. Clear communication ensures the best results for your project.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand"><span class="logo-icon">✨</span><span>Nexus</span></div>
+      <p>&copy; 2026 Nexus. All rights reserved.</p>
+      <div class="footer-links"><a href="#">Discord</a><a href="#">Roblox</a></div>
+    </div>
+  </footer>
+
+  <!-- Project Modal -->
+  <div class="modal-overlay hidden" id="project-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">×</button>
+      <div id="modal-visual"></div>
+      <div class="modal-body">
+        <h2 id="modal-title"></h2>
+        <p id="modal-desc"></p>
+        <div class="modal-details">
+          <div><strong>Client:</strong> <span id="modal-client"></span></div>
+          <div><strong>Timeline:</strong> <span id="modal-timeline"></span></div>
+          <div><strong>Tools:</strong> <span id="modal-tools"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
