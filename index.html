@@ -7,141 +7,367 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="cursor-glow"></div>
     <canvas id="confetti-canvas"></canvas>
 
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo">
-                <span class="logo-icon">🎮</span>
-                <span>CrimsonGamer123</span>
-            </a>
-            <div class="nav-links">
-                <a href="#home" class="nav-link active" data-section="home">Home</a>
-                <a href="#portfolio" class="nav-link" data-section="portfolio">Work</a>
-                <a href="#skills" class="nav-link" data-section="skills">Skills</a>
-                <a href="#testimonials" class="nav-link" data-section="testimonials">Clients</a>
-                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
-            </div>
-            <button id="mobile-menu-btn" aria-label="Menu">
-                <span></span><span></span>
-            </button>
+    <nav id="navbar" class="navbar">
+        <div class="nav-logo">
+            <span class="logo-icon">🎮</span>
+            <span>CrimsonGamer123</span>
         </div>
+        <div class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#portfolio" class="nav-link">Work</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#testimonials" class="nav-link">Clients</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="nav-cta">Let's Talk</button>
+        <button class="nav-mobile-btn" id="mobile-btn">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
-    <section id="home" class="hero section">
-        <div class="hero-content animate-on-scroll">
-            <div class="hero-badge">CrimsonGamer123 Studio • Building the Future</div>
-            <h1>Building <span>high-impact</span> Roblox experiences.</h1>
-            <p>CrimsonGamer123 turns concepts into scalable, performant games. Specialized in high-fidelity UI/UX design and game systems.</p>
-            <div class="hero-btns">
-                <a href="#portfolio" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+    <header id="home" class="hero animate-in">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Available for New Projects
             </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number" data-count="50">0</span><span class="stat-plus">+</span>
-                    <span class="stat-label">Projects</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-count="12">0</span><span class="stat-plus">M+</span>
-                    <span class="stat-label">Plays</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-count="100">0</span><span class="stat-plus">%</span>
-                    <span class="stat-label">Satisfied</span>
-                </div>
+            <h1 class="hero-title">Crafting <span>Next-Gen</span> Game Interfaces.</h1>
+            <p class="hero-desc">High-fidelity UI/UX designer specializing in immersive Roblox experiences, simulator interfaces, and custom game assets that convert.</p>
+            <div class="hero-tags">
+                <span class="hero-tag">UI/UX Design</span>
+                <span class="hero-tag">Branding</span>
+                <span class="hero-tag">Game Assets</span>
+            </div>
+            <div class="hero-btns">
+                <button class="btn-primary" onclick="window.location.href='#portfolio'">View Portfolio</button>
+                <button class="btn-secondary" onclick="window.location.href='#contact'">Contact Me</button>
             </div>
         </div>
-    </section>
+        
+        <div class="hero-visual">
+            <div class="snapshot-card glass-card">
+                <div class="snapshot-header">
+                    <span class="snapshot-label">Active Stats</span>
+                    <span class="snapshot-tag">Live</span>
+                </div>
+                <div class="snapshot-grid">
+                    <div class="snap-stat">
+                        <span class="snap-val">50+</span>
+                        <span class="snap-sub">Projects</span>
+                    </div>
+                    <div class="snap-stat">
+                        <span class="snap-val">10M+</span>
+                        <span class="snap-sub">Visits</span>
+                    </div>
+                    <div class="snap-stat">
+                        <span class="snap-val">4.9</span>
+                        <span class="snap-sub">Rating</span>
+                    </div>
+                </div>
+            </div>
+            <div class="focus-card glass-card">
+                <div class="focus-header">
+                    <span class="focus-title">Latest Work</span>
+                    <span class="snapshot-tag" style="background:rgba(139,92,246,0.1); color:var(--accent); border-color:rgba(139,92,246,0.2)">Featured</span>
+                </div>
+                <p class="focus-desc">Recently completed the full UI overhaul for 'Dragon Quest Simulator' including 50+ custom icons.</p>
+            </div>
+        </div>
+    </header>
 
     <section id="portfolio" class="section">
         <div class="section-container">
             <div class="section-header animate-on-scroll">
-                <h2 class="section-title">Selected Works</h2>
-                <div class="portfolio-filters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="hub">Hubs</button>
-                    <button class="filter-btn" data-filter="sim">Simulator</button>
-                    <button class="filter-btn" data-filter="td">Tower Defense</button>
-                    <button class="filter-btn" data-filter="classic">Classic</button>
-                </div>
+                <span class="section-tag">Showcase</span>
+                <h2 class="section-title">Featured Works</h2>
             </div>
 
-            <div class="portfolio-grid">
-                <!-- Project 1 -->
-                <div class="portfolio-item animate-on-scroll" data-category="hub">
+            <div class="portfolio-filters animate-on-scroll">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="simulator">Simulators</button>
+                <button class="filter-btn" data-filter="fps">FPS</button>
+                <button class="filter-btn" data-filter="hub">Hubs/GUIs</button>
+            </div>
+
+            <div class="portfolio-grid animate-on-scroll">
+                <div class="portfolio-item" data-category="simulator">
                     <div class="portfolio-img">
-                        <img src="https://crimsongamer123.github.io/portfolio-assets/showcase-battle.png" style="width:100%; height:100%; object-fit:cover;">
+                        <div class="mockup-ui ui-td">
+                            <div class="td-grid">
+                                <div class="td-card">
+                                    <div class="td-header">Basic Chest<small>Common</small></div>
+                                    <div class="td-body"><div class="td-chest"></div></div>
+                                    <div class="td-footer"><div class="td-btn"><span>🪙</span>100</div></div>
+                                </div>
+                                <div class="td-card" style="border-color: #a855f7;">
+                                    <div class="td-header" style="color:#a855f7">Rare Chest<small>Rare</small></div>
+                                    <div class="td-body"><div class="td-chest rare"></div></div>
+                                    <div class="td-footer"><div class="td-btn" style="background:#a855f7; border-color:#6b21a8"><span>🪙</span>500</div></div>
+                                </div>
+                                <div class="td-card" style="border-color: #ef4444;">
+                                    <div class="td-header" style="color:#ef4444">Epic Chest<small>Epic</small></div>
+                                    <div class="td-body"><div class="td-chest epic"></div></div>
+                                    <div class="td-footer"><div class="td-btn" style="background:#ef4444; border-color:#991b1b"><span>🪙</span>2500</div></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="portfolio-overlay">
-                            <button class="portfolio-expand" data-project="0">View Details</button>
+                            <button class="portfolio-expand" onclick="openModal('tower')">View Details</button>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Battle System</h3>
-                        <p>High-fidelity combat interface</p>
+                        <h3>Tower Defense Shop</h3>
+                        <p>Modern, vibrant shop interface designed for a front-page simulator.</p>
+                        <div class="portfolio-tags">
+                            <span>Vibrant</span>
+                            <span>Simulator</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="portfolio-item animate-on-scroll" data-category="sim">
+                <div class="portfolio-item" data-category="fps">
                     <div class="portfolio-img">
-                        <img src="https://crimsongamer123.github.io/portfolio-assets/showcase-exploration.png" style="width:100%; height:100%; object-fit:cover;">
+                        <div class="mockup-ui ui-classic">
+                            <div class="classic-window">
+                                <div class="classic-header">SETTINGS</div>
+                                <div class="classic-list">
+                                    <div class="classic-item">Master Volume <div class="classic-value">85%</div></div>
+                                    <div class="classic-item">Field of View <div class="classic-value">90</div></div>
+                                    <div class="classic-item">Show FPS <div class="classic-value">ON</div></div>
+                                    <div class="classic-item">Crosshair Color <div class="classic-value" style="color:#22c55e">#22C55E</div></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="portfolio-overlay">
-                            <button class="portfolio-expand" data-project="1">View Details</button>
+                            <button class="portfolio-expand" onclick="openModal('fps')">View Details</button>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Exploration UI</h3>
-                        <p>Dynamic world navigation</p>
+                        <h3>Tactical FPS UI</h3>
+                        <p>Clean, minimal, and highly functional settings and HUD for competitive games.</p>
+                        <div class="portfolio-tags">
+                            <span>Minimal</span>
+                            <span>FPS</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="portfolio-item animate-on-scroll" data-category="td">
+                <div class="portfolio-item" data-category="hub">
                     <div class="portfolio-img">
-                        <img src="https://crimsongamer123.github.io/portfolio-assets/showcase-inventory.png" style="width:100%; height:100%; object-fit:cover;">
+                        <div class="mockup-ui ui-hub">
+                            <div class="hub-window">
+                                <div class="hub-sidebar">
+                                    <div class="hub-icon"></div><div class="hub-icon"></div><div class="hub-icon"></div>
+                                </div>
+                                <div class="hub-content">
+                                    <div class="hub-user">
+                                        <div class="hub-avatar"></div>
+                                        <div class="hub-user-text">Nexus Premium<span>Tier: Ultimate</span></div>
+                                    </div>
+                                    <div class="hub-grid">
+                                        <div class="hub-panel hub-gradient-green">
+                                            <div class="hub-panel-title">Executor</div>
+                                            <div class="hub-panel-sub">Status: Operational</div>
+                                            <div class="hub-stats">
+                                                <div class="hub-stat"><div class="hub-stat-label">CPU</div><div class="hub-stat-val">12%</div></div>
+                                                <div class="hub-stat"><div class="hub-stat-label">RAM</div><div class="hub-stat-val">450MB</div></div>
+                                            </div>
+                                        </div>
+                                        <div class="hub-panel hub-gradient-blue">
+                                            <div class="hub-panel-title">Scripts</div>
+                                            <div class="hub-panel-sub">42 Active</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="portfolio-overlay">
-                            <button class="portfolio-expand" data-project="2">View Details</button>
+                            <button class="portfolio-expand" onclick="openModal('hub')">View Details</button>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Inventory System</h3>
-                        <p>Advanced item management</p>
+                        <h3>Premium Script Hub</h3>
+                        <p>Futuristic glassmorphism design for high-end script execution services.</p>
+                        <div class="portfolio-tags">
+                            <span>Glassmorphism</span>
+                            <span>Hub</span>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- More items could be added here -->
             </div>
         </div>
     </section>
 
-    <!-- Other sections (Skills, Testimonials, Contact) go here... -->
-    
-    <footer id="footer">
-        <div class="footer-container">
-            <div class="footer-bottom">
-                <p>© 2026 CrimsonGamer123. All rights reserved.</p>
+    <section id="skills" class="section">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Expertise</span>
+                <h2 class="section-title">Technical Skills</h2>
+            </div>
+            <div class="skills-grid animate-on-scroll">
+                <div class="skill-card">
+                    <span class="skill-icon">🎨</span>
+                    <h4>UI Design</h4>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">⚡</span>
+                    <h4>UX Motion</h4>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">📐</span>
+                    <h4>Vector Art</h4>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">🛠️</span>
+                    <h4>Roblox Studio</h4>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 98%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Reviews</span>
+                <h2 class="section-title">What Clients Say</h2>
+            </div>
+            <div class="testimonials-track animate-on-scroll">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"One of the best designers I've worked with. The UI for my simulator increased our conversion rate by 40%."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background:var(--primary)">JD</div>
+                        <div>
+                            <strong>Justin Dev</strong>
+                            <span>Lead Developer, Spark Games</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Incredible attention to detail. The assets were perfectly optimized and ready to import into Studio."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background:var(--accent)">SL</div>
+                        <div>
+                            <strong>Sarah Luna</strong>
+                            <span>Creative Director</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Inquiry</span>
+                <h2 class="section-title">Start a Project</h2>
+            </div>
+            
+            <div class="contact-grid animate-on-scroll">
+                <form class="contact-form" id="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Discord Username</label>
+                            <input type="text" placeholder="user#0000" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Type</label>
+                        <select required>
+                            <option value="">Select a service...</option>
+                            <option value="full-ui">Full Game UI Overhaul</option>
+                            <option value="assets">Custom Icons/Assets</option>
+                            <option value="branding">Game Branding/Logos</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Budget Range</label>
+                        <select required>
+                            <option value="">Select budget...</option>
+                            <option value="small">1,000 - 5,000 Robux</option>
+                            <option value="medium">5,000 - 20,000 Robux</option>
+                            <option value="large">20,000+ Robux / USD</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Project Details</label>
+                        <textarea rows="5" placeholder="Tell me about your game..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">👾</div>
+                        <div>
+                            <p>Discord</p>
+                            <strong>crimson.ui</strong>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <p>Email</p>
+                            <strong>hello@crimson.design</strong>
+                        </div>
+                    </div>
+                    <div class="terms-section">
+                        <div class="terms-item">
+                            <h4>Fast Delivery</h4>
+                            <p>Typically 3-5 days for small projects.</p>
+                        </div>
+                        <div class="terms-item">
+                            <h4>Revision Policy</h4>
+                            <p>Unlimited revisions until you're 100% satisfied.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo-icon">🎮</span>
+                CrimsonGamer123
+            </div>
+            <p>© 2024 Premium UI Design. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">Twitter</a>
+                <a href="#">Dribbble</a>
+                <a href="#">Behance</a>
             </div>
         </div>
     </footer>
 
-    <div id="project-modal" class="hidden">
+    <div id="project-modal" class="modal-overlay hidden">
         <div class="modal-content">
-            <button id="modal-close">&times;</button>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modal-visual"></div>
             <div class="modal-body">
-                <div id="modal-visual"></div>
-                <div class="modal-info">
-                    <h2 id="modal-title">Project Title</h2>
-                    <p id="modal-desc">Project description goes here...</p>
-                    <div class="modal-meta">
-                        <div class="meta-item"><strong>Client:</strong> <span id="modal-client">-</span></div>
-                        <div class="meta-item"><strong>Timeline:</strong> <span id="modal-timeline">-</span></div>
-                        <div class="meta-item"><strong>Tools:</strong> <span id="modal-tools">-</span></div>
-                    </div>
+                <h2 id="modal-title">Project Title</h2>
+                <p id="modal-desc">Detailed project description goes here.</p>
+                <div class="modal-details">
+                    <div>Category<strong id="modal-cat">Simulator</strong></div>
+                    <div>Timeline<strong id="modal-time">4 Days</strong></div>
+                    <div>Tools<strong id="modal-tools">Figma, Studio</strong></div>
                 </div>
             </div>
         </div>
