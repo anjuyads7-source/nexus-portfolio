@@ -33,53 +33,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     mobileBtn.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
-        mobileBtn.classList.toggle('active');
+        const spans = mobileBtn.querySelectorAll('span');
+        spans[0].classList.toggle('rotate-45');
+        spans[1].classList.toggle('opacity-0');
+        spans[2].classList.toggle('-rotate-45');
     });
 
-    // 2. ANIMATIONS ON SCROLL
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
         });
-    }, observerOptions);
+    });
 
-    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
-    // 3. COUNTER ANIMATION (STATS)
-    const statNumbers = document.querySelectorAll('.stat-number');
-    const animateStats = () => {
-        statNumbers.forEach(num => {
-            const target = +num.getAttribute('data-count');
-            const count = +num.innerText;
-            const speed = 2000 / target;
-
-            if (count < target) {
-                num.innerText = Math.ceil(count + 1);
-                setTimeout(animateStats, speed);
-            } else {
-                num.innerText = target + (target === 100 ? '%' : '+');
-            }
-        });
-    };
-
-    // Trigger stats animation when section is in view
-    const statsSection = document.getElementById('stats');
-    const statsObserver = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-            animateStats();
-            statsObserver.unobserve(statsSection);
-        }
-    }, { threshold: 0.5 });
-
-    if (statsSection) statsObserver.observe(statsSection);
-
-    // 4. PORTFOLIO FILTERING
+    // 2. PORTFOLIO FILTERING
     const filterBtns = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
 
@@ -89,86 +56,110 @@ document.addEventListener('DOMContentLoaded', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            // Filter items
-            const filterValue = btn.getAttribute('data-filter');
+            const filter = btn.getAttribute('data-filter');
+
             portfolioItems.forEach(item => {
-                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                if (filter === 'all' || item.getAttribute('data-category').includes(filter)) {
                     item.style.display = 'block';
                     setTimeout(() => item.style.opacity = '1', 10);
                 } else {
                     item.style.opacity = '0';
-                    setTimeout(() => item.style.display = 'none', 500);
+                    setTimeout(() => item.style.display = 'none', 300);
                 }
             });
         });
     });
 
-    // 5. MODAL SYSTEM
+    // 3. ANIMATE ON SCROLL
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // 4. MODAL SYSTEM
     const modal = document.getElementById('project-modal');
     const modalClose = document.getElementById('modal-close');
-    const expandBtns = document.querySelectorAll('.portfolio-expand');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalVisual = document.getElementById('modal-visual');
+    const modalClient = document.getElementById('modal-client');
+    const modalTimeline = document.getElementById('modal-timeline');
+    const modalTools = document.getElementById('modal-tools');
 
     const projectData = [
         {
-            title: "Premium Hub Interface",
-            desc: "A comprehensive dashboard for player statistics, settings, and social features. Designed with a focus on usability and modern aesthetics.",
-            client: "Top Games Inc.",
+            title: "Hub UI 1",
+            desc: "A comprehensive Hub interface designed for high-performance Roblox games. Features a modular layout, integrated friend lists, and real-time server stats.",
+            client: "Nexus Studios",
             timeline: "2 Weeks",
-            tools: "Figma, Roblox Studio",
-            visualClass: "ui-hub"
+            tools: "Figma, Roblox Studio, Luau",
+            visual: '<div class="mockup-ui ui-hub"><div class="hub-window"><div class="hub-content"><div class="hub-grid"><div class="hub-panel"><div class="hub-panel-title">Friends</div><div class="hub-stats"><div class="hub-stat"><div class="hub-stat-label">Online</div><div class="hub-stat-val">5</div></div><div class="hub-stat"><div class="hub-stat-label">Offline</div><div class="hub-stat-val">12</div></div></div></div><div class="hub-panel"><div class="hub-panel-title">Game ID</div><div class="hub-panel-sub" style="font-family:monospace;color:#fff;font-size:0.8rem">129402941</div></div></div></div></div></div>'
         },
-        // ... more data can be added
+        {
+            title: "Hub UI 2",
+            desc: "Advanced Admin Hub with server monitoring, player data management, and Discord integration. Built for scale.",
+            client: "Private Client",
+            timeline: "3 Weeks",
+            tools: "Figma, Luau",
+            visual: '<div class="mockup-ui ui-hub"><div class="hub-window"><div class="hub-sidebar"><div class="hub-icon"></div><div class="hub-icon" style="background:#fff"></div><div class="hub-icon"></div><div class="hub-icon"></div></div><div class="hub-content"><div class="hub-user"><div class="hub-avatar"></div><div class="hub-user-text">Hello, Nexus_Owner<span>Nexus - Admin Hub</span></div></div><div class="hub-grid"><div class="hub-panel hub-gradient-green"><div class="hub-panel-title">Server</div><div class="hub-panel-sub">Information on the session</div><div class="hub-stats"><div class="hub-stat"><div class="hub-stat-label">Players</div><div class="hub-stat-val">12 playing</div></div><div class="hub-stat"><div class="hub-stat-label">Latency</div><div class="hub-stat-val">85ms</div></div></div></div><div class="hub-panel hub-gradient-blue"><div class="hub-panel-title">Discord</div><div class="hub-panel-sub">Tap to join</div></div></div></div></div></div>'
+        }
     ];
 
-    expandBtns.forEach(btn => {
+    document.querySelectorAll('.portfolio-expand').forEach(btn => {
         btn.addEventListener('click', () => {
-            const id = btn.getAttribute('data-project');
-            const data = projectData[0]; // Simplified for this demo
+            const index = btn.getAttribute('data-project');
+            const data = projectData[index] || projectData[0];
 
-            document.getElementById('modal-title').innerText = data.title;
-            document.getElementById('modal-desc').innerText = data.desc;
-            document.getElementById('modal-client').innerText = data.client;
-            document.getElementById('modal-timeline').innerText = data.timeline;
-            document.getElementById('modal-tools').innerText = data.tools;
-            
+            modalTitle.textContent = data.title;
+            modalDesc.textContent = data.desc;
+            modalClient.textContent = data.client;
+            modalTimeline.textContent = data.timeline;
+            modalTools.textContent = data.tools;
+            modalVisual.innerHTML = data.visual;
+
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         });
     });
 
-    modalClose.addEventListener('click', () => {
+    const closeModal = () => {
         modal.classList.add('hidden');
         document.body.style.overflow = 'auto';
+    };
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
     });
 
-    // 6. CONTACT FORM
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = contactForm.querySelector('button');
-            const originalText = btn.innerText;
-            
-            btn.innerText = 'Sending...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                btn.innerText = 'Message Sent!';
-                btn.style.background = '#22c55e';
-                contactForm.reset();
-                
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.background = '';
-                    btn.disabled = false;
-                }, 3000);
-            }, 1500);
+    // 5. CURSOR GLOW
+    const cursorGlow = document.getElementById('cursor-glow');
+    if (window.innerWidth > 1024) {
+        cursorGlow.style.display = 'block';
+        window.addEventListener('mousemove', (e) => {
+            cursorGlow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
         });
     }
 
-    // 7. CURSOR GLOW
-    const glow = document.getElementById('cursor-glow');
-    document.addEventListener('mousemove', (e) => {
-        glow.style.transform = `translate(${e.clientX - 200}px, ${e.clientY - 200}px)`;
-    });
+    // 6. SKILL BARS ANIMATION
+    const skillBars = document.querySelectorAll('.skill-fill');
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const width = entry.target.getAttribute('data-width');
+                entry.target.style.width = width + '%';
+            }
+        });
+    }, { threshold: 0.5 });
+
+    skillBars.forEach(bar => skillObserver.observe(bar));
 });
